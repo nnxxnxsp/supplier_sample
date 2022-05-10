@@ -1,0 +1,18 @@
+version: '2'
+services:
+  app:
+    image: yiisoftware/yii2-php:7.4-apache
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache
+      - ./:/app
+    links:
+      - mysql:db
+    ports:
+      - '8000:80'
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=verysecret
+      - MYSQL_DATABASE=yii2basic
+      - MYSQL_USER=yii2basic
+      - MYSQL_PASSWORD=secret
