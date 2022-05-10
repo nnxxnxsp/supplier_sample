@@ -19,7 +19,6 @@ class SupplierSearch extends Supplier
             [['t_status'], 'string'],
             [['name'], 'string', 'max' => 50],
             [['code'], 'string', 'max' => 3],
-            [['code'], 'unique'],
             [['name', 'code', 't_status', 'id_compare_op', 'id_compare_number'], 'safe'],
         ];
     }

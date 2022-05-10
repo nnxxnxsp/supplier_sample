@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('input[name=selection_all]').on('click', function (e) {
+    $('.supplier-index').on('click', '.select-on-check-all', function (e) {
         let messageBox = $('#supplier-message-box');
         if ($(this).prop('checked')) {
             let selectedCount = $("input[name='selection[]']").length;
@@ -13,9 +13,7 @@ $(document).ready(function () {
             messageBox.css('display', 'none')
                 .html('');
         }
-    });
-
-    $('.supplier-index').on('click', '.select_all_records', function () {
+    }).on('click', '.select_all_records', function () {
         let messageBox = $('#supplier-message-box');
         let message = `All records in this search have been selected. <a href="javascript:" ` +
             `class="clear_select_all_records">Clear selection.</a>`;
@@ -42,7 +40,7 @@ $(document).ready(function () {
             searchParams.id_compare_number = $("input[name='SupplierSearch[id_compare_number]']").val();
             searchParams.name = $("input[name='SupplierSearch[name]']").val();
             searchParams.code = $("input[name='SupplierSearch[code]']").val();
-            searchParams.t_status = $("input[name='SupplierSearch[t_status]']").val();
+            searchParams.t_status = $("select[name='SupplierSearch[t_status]']").val();
         } else {
             let selectedIds = $("#w0").yiiGridView('getSelectedRows');
             if (selectedIds.length === 0) {
